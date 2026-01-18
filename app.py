@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 
@@ -8,7 +7,7 @@ import plotly.express as px
 st.set_page_config(page_title="Bike Rental Dashboard", layout="wide")
 
 # Title
-st.title("🚲 Washington D.C. Bike Rental Dashboard")
+st.title(" Washington D.C. Bike Rental Dashboard")
 st.markdown("Interactive exploration of bike rental trends (2011–2012)")
 
 # Load dataset (assuming it's in the same folder)
@@ -57,7 +56,7 @@ elif day_type == "Holiday/Weekend":
     filtered_df = filtered_df[filtered_df["workingday"] == 0]
 
 # Display filtered dataset info
-st.sidebar.write(f"📊 Filtered Rows: **{len(filtered_df)}**")
+st.sidebar.write(f" Filtered Rows: **{len(filtered_df)}**")
 
 # Main Dashboard
 st.header("📈 Visualizations")
@@ -115,9 +114,10 @@ fig6 = px.scatter(filtered_df, x="temp", y="count", color="season",
 st.plotly_chart(fig6, use_container_width=True)
 
 # Summary Stats
-st.header("📋 Summary Statistics")
+st.header("Summary Statistics")
 st.dataframe(filtered_df[["count", "casual", "registered", "temp", "humidity"]].describe())
 
 # Footer
 st.markdown("---")
-st.markdown("📌 *Dashboard created with Streamlit | Data from Kaggle*")
+
+st.markdown("*Dashboard created with Streamlit | Data from Kaggle*")
